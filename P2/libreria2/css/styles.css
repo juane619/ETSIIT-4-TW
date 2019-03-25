@@ -1,0 +1,387 @@
+/*
+  ESTILOS PRÁCTICA 2 TW - Juan Emilio García Martínez
+*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* END http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+/******* General rules *********/
+
+body {
+    background: #F9F9F7;
+    color: #417FD0;
+    width: 990px;
+    margin: 0 auto;
+    /* Centrar body */
+    font-size: 11px;
+    font-family: "trebuchet ms", helvetica, sans-serif;
+    line-height: 18px;
+}
+
+.general-padding {
+    padding: 7px;
+}
+
+.content-title {
+    margin-bottom: 5px;
+    font-size: 2.2em;
+}
+
+/* Iconos */
+
+.fa-icon {
+    background-image: url(../img/facebook.png);
+    background-repeat: no-repeat;
+    background-size: 15px 15px;
+}
+
+.tw-icon {
+    background-image: url(../img/twitter.png);
+    background-repeat: no-repeat;
+    background-size: 15px 15px;
+}
+
+.pi-icon {
+    background-image: url(../img/pinterest.png);
+    background-repeat: no-repeat;
+    background-size: 15px 15px;
+}
+
+.rs-icon {
+    background-image: url(../img/rss.png);
+    background-repeat: no-repeat;
+    background-size: 15px 15px;
+}
+
+/* END Iconos */
+
+/******* END General rules *********/
+
+/* -------------- Estructura Flexbox */
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* Continuar en siguiente linea si ancho menor*/
+    justify-content: normal;
+    /* Eje principal */
+}
+
+#contenido {
+    display: flex;
+    /*justify-content: space-between;  */
+}
+
+#contenido main {
+    width: 70%;
+}
+
+#contenido aside {
+    width: 30%;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul {
+    display: flex;
+}
+
+footer #footer-middle ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* -------------- Diseño Adaptable */
+
+/* Tamaño inferior al ancho fijo inicial */
+
+@media (max-width: 696px) {
+    body {
+        width: 100%;
+    }
+    header #head_izq {
+        width: 100%;
+    }
+    header #head_der {
+        width: 100%;
+    }
+    nav {
+        box-sizing: border-box;
+        /* display: none; */
+    }
+    nav ul {
+        flex-wrap: wrap;
+        height: auto;
+    }
+    #contenido {
+        flex-direction: column;
+    }
+    #contenido main {
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+        box-sizing: border-box;
+    }
+    #contenido aside {
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+        box-sizing: border-box;
+    }
+}
+
+/* Si el tamaño es aún menor ... */
+
+@media (max-width: 510px) {
+    nav {
+        height: auto;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        height: auto;
+    }
+    nav ul li, nav ul li a {
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+    footer {
+        flex-direction: column;
+    }
+    footer #footer-middle ul {
+        flex-wrap: wrap;
+    }
+}
+
+/* -------------- HEADER  ------------------*/
+
+header {
+    padding-top: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+    align-items: center;
+}
+
+header img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Logo header */
+
+header #head_izq {
+    padding: 0 20px;
+}
+
+/* Titulos header */
+
+header #head_der {
+    width: 458px;
+    /*  height: 92px; */
+}
+
+header h1 {}
+
+header h2 {}
+
+/* -------------- END HEADER  ------------------*/
+
+/* -------------- NAVEGACIÓN ---------------*/
+
+nav {
+    /* margin: 10px 0 5px 0px; */
+    display: flex;
+    background: #EDEDED;
+    border-style: solid;
+    border-width: 1px;
+    /* height:30px; */
+}
+
+/* Reglas para el diseño fijo */
+
+/* nav           { /* height: 67px;  }
+nav ul        {  height: 40px;  }
+nav ul li     { padding-top: 6px;  padding-bottom: 16px; }
+nav ul li a   { padding: 8px 12px 20px 12px; } */
+
+/* Lista del menú de navegación */
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    padding: 0;
+}
+
+/* Items de la lista del menú de navegación */
+
+nav ul li {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 0;
+}
+
+/* Enlaces del menú de navegación */
+
+nav ul li a {
+    margin: 0px;
+    text-decoration: none;
+    padding: 6px 15px;
+}
+
+/* Enlaces al pasar ratón por encima */
+
+nav ul li a:hover {
+    background: #fff;
+    color: #4A4A24;
+}
+
+/* Pestaña activa del menú */
+
+nav ul li.activo {
+    background-color: #BDBDA2;
+}
+
+/* -------------- END NAVEGACIÓN ---------------*/
+
+/* -------------- CONTENEDOR PRINCIPAL DE CONTENIDO  --------------*/
+
+#contenido {
+    margin: 5px 0px 5px 0;
+}
+
+/* Zona izquierda: contenido principal (articulos) */
+
+#contenido main {
+    border-style: solid;
+    border-width: 1px;
+    background: #EDEDED;
+    margin-right: 5px;
+}
+
+#contenido main article {
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+/* Zona derecha: bloques informativos */
+
+#contenido aside {
+    border-style: solid;
+    border-width: 1px;
+    background: #EDEDED;
+}
+
+#contenido aside article {
+    margin-bottom: 15px;
+}
+
+/* ENTRADAS DE LibROS */
+
+.catalogo-libros {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 12em);
+    grid-gap: 30px;
+    padding: 10px;
+}
+
+/* Books entries*/
+
+.book-entry {}
+
+.book-entry img {
+    width: 100px;
+    height: 150px;
+}
+
+/* -------------- END CONTENIDO ---------------*/
+
+/* -------------- PIE DE PÁGINA ----------*/
+
+footer {
+    background: #EDEDED;
+    margin: 0;
+    font-weight: bold;
+    box-sizing: border-box;
+    text-align: left;
+    border-style: solid;
+    border-width: 1px;
+}
+
+footer #footer-left {
+    width: 30%;
+}
+
+footer #footer-left ul {
+    margin-bottom: 10px;
+}
+
+footer #footer-middle {
+    width: 50%;
+    text-align: center;
+}
+
+footer #footer-middle ul li {
+    display: inline;
+}
+
+footer #footer-middle ul li a {
+    padding-left: 17px;
+    padding-bottom: 5px;
+}
+
+footer #footer-right {
+    width: 20%;
+    line-height: 1.5rem;
+}
+
+/* -------------- END PIE DE PÁGINA ----------*/
