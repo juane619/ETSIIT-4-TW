@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
     <title>Practica 2- Pedidos</title>
@@ -13,9 +13,14 @@
 
 <body>
     <header>
-        <img src="img/logo-libro.png" width="50" />
-        <h1>El lector de Libros</h1>
-        <h3>Contando historias desde hace 100 años</h3>
+        <div id="head_izq">
+            <img src="img/logo-libro.png" alt="El lector de libros" />
+        </div>
+
+        <div id="head_der">
+            <h1>El lector de Libros</h1>
+            <h3>Contando historias desde hace 100 años</h3>
+        </div>
     </header>
     <nav>
         <ul>
@@ -26,9 +31,9 @@
             <li><a href="pedidos.html">Pedidos</a></li>
         </ul>
     </nav>
-    <main>
-        <article>
-            <h1>Pedidos</h1>
+    <div id="contenido">
+        <main id="content-izq" class="general-padding">
+            <h1 class="content-title general-padding">Pedidos</h1>
             <section id="datos-libro">
                 <p><label>Titulo<input type="text" name="titulo" disabled></label></p>
                 <p><label>Autor<input type="text" name="autor" disabled></label></p>
@@ -67,48 +72,68 @@
                     <input type="submit" value="Hacer pedido" />
                 </form>
             </section>
-        </article>
-    </main>
-    <aside>
-        <article>
-            <h3>Mas vendidos</h3>
-            <ul>
-                <li>El quijote</li>
-                <li>Ulises</li>
-                <li>Arguiñano cocina</li>
-            </ul>
-        </article>
-        <article>
-            <h3>Mas populares</h3>
-            <ul>
-                <li>Charles Dickens</li>
-                <li>Julio Verne</li>
-                <li>Edgar Allan Poe</li>
-            </ul>
-        </article>
-    </aside>
-    <footer>
-        <div id="footer-left">
-            <ul>
-                <li>Granada</li>
+        </main>
+        <aside id="content-der" class="general-padding">
+            <article>
+                <h3>Mas vendidos</h3>
                 <ul>
-                    <li>Reyes Católicos (555 112233)</li>
-                    <li>Avda Dilar (555 332211)</li>
+                    <li>El quijote</li>
+                    <li>Ulises</li>
+                    <li>Arguiñano cocina</li>
                 </ul>
-                <li>Malaga</li>
+            </article>
+            <article>
+                <h3>Mas populares</h3>
                 <ul>
-                    <li>Marques de Larios (555 221133)</li>
+                    <li>Charles Dickens</li>
+                    <li>Julio Verne</li>
+                    <li>Edgar Allan Poe</li>
                 </ul>
+            </article>
+        </aside>
+    </div>
+    <footer class="general-padding">
+        <div id="footer-left" class="general-padding">
+            <ul>
+                <li>
+                    <h2>Granada</h2>
+                </li>
+                <li>
+                    <ul>
+                        <li>Reyes Católicos (555 112233)</li>
+                        <li>Avda Dilar (555 332211)</li>
+                    </ul>
+                </li>
+                <li>
+                    <h2>Malaga</h2>
+                </li>
+                <li>
+                    <ul>
+                        <li>Marques de Larios (555 221133)</li>
+                    </ul>
+                </li>
             </ul>
         </div>
-        <div id="footer-center">
-            <a href="mailto:juane_619@hotmail.com">juane_619@hotmail.com</a>
+        <div id="footer-middle" class="general-padding">
+            <div id="footer-contact">
+                <a href="mailto:juane_619@hotmail.com">juane_619@hotmail.com</a>
+                <ul id="footer-rss">
+                    <li> <a class="fa-icon footer-icon" href="https://facebook.com"></a></li>
+                    <li> <a class="tw-icon footer-icon" href="https://facebook.com"></a></li>
+                    <li> <a class="pi-icon footer-icon" href="https://facebook.com"></a></li>
+                    <li> <a class="rs-icon footer-icon" href="https://facebook.com"></a></li>
+                </ul>
+            </div>
         </div>
-        <div id="footer-right">
+        <div id="footer-right" class="general-padding">
             <ul>
                 <li><a href="index.html">La empresa</a></li>
                 <li><a href="index.html">Politica del sitio</a></li>
                 <li><a href="index.html">Preguntas frecuentes</a></li>
+                <li><a href="index.html">Mapa del sitio</a></li>
+                <li><a href="index.html">Mapa del sitio</a></li>
+                <li><a href="index.html">Mapa del sitio</a></li>
+                <li><a href="index.html">Mapa del sitio</a></li>
                 <li><a href="index.html">Mapa del sitio</a></li>
             </ul>
         </div>

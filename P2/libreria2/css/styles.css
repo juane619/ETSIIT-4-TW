@@ -433,6 +433,42 @@ input[type=submit] {
 
 /* END Formulario búsquedas */
 
+/* Página tiendas */
+
+#shop-content h3 {
+    margin-bottom: 10px;
+}
+
+#shop-content table {
+    text-align: center;
+    border: 1px solid;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#shop-content table thead th {
+    vertical-align: middle;
+    width: 10%;
+}
+
+#shop-content tr, #shop-content td, #shop-content tbody, #shop-content thead {
+    border: 1px solid;
+}
+
+#shop-content tr td:first-child {
+    vertical-align: middle;
+}
+
+#shop-content thead tr th:nth-child(2) {
+    width: 30%;
+}
+
+/* END Página tiendas */
+
+/* Página pedidos */
+
+/* END Página pedidos */
+
 /************* END DISTINTAS PÁGINAS (POSIBLE DIVISION DE ARCHIVOS CSS) ***********/
 
 /* -------------- END CONTENIDO ---------------*/
