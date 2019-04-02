@@ -34,8 +34,49 @@
     <div id="contenido">
         <main id="content-izq" class="general-padding">
             <h1 class="content-title general-padding">Pedidos</h1>
-            <section id="datos-libro">
-                <p><label>Titulo<input type="text" name="titulo" disabled></label></p>
+            <section id="datos-libro" class=" general-padding">
+                <h2>Datos del libro</h2>
+                <div class="row">
+                    <div class="book-attribute col-100">
+                        <label for="titulo">Titulo</label>
+                        <input type="text" name="titulo" disabled>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="book-attribute col-50">
+                        <label for="autor">Autor</label>
+                        <input type="text" name="autor" disabled>
+                    </div>
+                    <div class="book-attribute col-50">
+                        <label for="editorial">Editorial</label>
+                        <input type="text" name="titulo" disabled>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="book-attribute col-50">
+                        <label for="isbn">ISBN</label>
+                        <input type="text" name="isbn" disabled>
+                    </div>
+                    <div class="book-attribute col-50">
+                        <label for="anio">Año</label>
+                        <input type="text" name="anio" disabled>
+                    </div>
+                </div>
+                <h4>Sinopsis</h4>
+                <p>SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis
+                    SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis
+                    SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis
+                    SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis
+                    SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis
+                    SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis
+                    SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis.
+                </p>
+
+
+
+                <!-- <p><label>Titulo<input type="text" name="titulo" disabled></label></p>
                 <p><label>Autor<input type="text" name="autor" disabled></label></p>
                 <p><label>Editorial<input type="text" name="editorial" disabled></label></p>
                 <p><label>ISBN<input type="text" name="isbn" disabled></label></p>
@@ -48,28 +89,75 @@
                     SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis
                     SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis
                     SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis.
-                </p>
+                </p> -->
             </section>
             <section id="datos-pedido">
+                <h2>Datos del pedido</h2>
                 <form action="procesar.php" method="post">
-                    <p><label>Nombre y apellidos <input type="text" name="name"></label></p>
-                    <p><label>Dirección de envío <textarea name="direccion"></textarea></label></p>
-                    <p><label>Email <input type="email" name="email"></label></p>
-                    <p><label>Número de tarjeta <input type="number" name="tarjeta"></label></p>
-                    <p>
-                        <label>Fecha de caducidad <input type="date" name="fechacad"></label>
-                        <label>CVC <input type="number" name="cvc"></label>
-                    </p>
-                    <p>
-                        <label>Marque si procede</label>
-                        <label><input type="checkbox" name="procede" value="acepto">He leído y acepto las condiciones de
-                            compra</label>
-                        <label><input type="checkbox" name="procede" value="recibir">Deseo recibir información sobre
-                            novedades</label>
-                        <label><input type="checkbox" name="procede" value="regalo" checked>Deseo el envío envuelto para
-                            regalo</label>
-                    </p>
-                    <input type="submit" value="Hacer pedido" />
+                    <div class="row">
+                        <div class="col-10">
+                            <label for="name">Nombre y apellidos</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="name" name="aunametor" placeholder="Nombre y apellidos..">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10">
+                            <label for="direccion">Dirección de envío</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="direccion" name="direccion" placeholder="Dirección..">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10">
+                            <label for="email">EMAIL</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="email" name="email" placeholder="Email..">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10">
+                            <label for="numtarj">Número de tarjeta</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="numtarj" name="numtarj" placeholder="Número de tarjeta..">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10">
+                            <label for="caducity">Fecha de caducidad</label>
+                        </div>
+                        <div class="col-35">
+                            <input type="date" id="caducity" name="caducity" placeholder="Número de tarjeta..">
+                        </div>
+                        <div class="col-10">
+                            <label for="cvc">CVC</label>
+                        </div>
+                        <div class="col-35">
+                            <input type="number" id="cvc" name="cvc" placeholder="Número de tarjeta..">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10">
+                            <label>Marque si procede</label>
+                        </div>
+                        <div class="col-75">
+                            <div class="procede">
+                                <label><input type="checkbox" name="leido" value="le">He leido y acepto las condiciones
+                                    de compra</label>
+                                <label><input type="checkbox" name="recibir" value="re">Deseo recibir información sobre
+                                    novedades</label>
+                                <label><input type="checkbox" name="envuelto" value="en" checked>Deseo el envío envuelto
+                                    para regalo</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <input type="submit" value="Hacer pedido">
+                    </div>
                 </form>
             </section>
         </main>

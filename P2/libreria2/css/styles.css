@@ -74,6 +74,11 @@ body {
     font-size: 2.2em;
 }
 
+#contenido main section{
+    margin-top: 15px;
+    padding:7px;
+}
+
 /* Iconos */
 
 .fa-icon {
@@ -103,6 +108,43 @@ body {
 }
 
 /* END Iconos */
+
+/* ROws and columns for forms */
+
+.row {
+    margin-top: 7px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.col-10 {
+    width: 10%;
+    margin-top: 5px;
+}
+
+.col-25 {
+    width: 25%;
+    margin-top: 5px;
+}
+
+.col-50 {
+    width: 50%;
+    margin-top: 5px;
+}
+
+.col-75 {
+    width: 75%;
+    margin-top: 5px;
+}
+
+.col-100 {
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* END ROws and columns for forms */
 
 /******* END General rules *********/
 
@@ -207,6 +249,17 @@ footer #footer-middle ul {
     }
     footer #footer-middle ul {
         flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 380px) {
+    .row {
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: flex-start;
+    }
+    .book-attribute{
+        width: 100%;
     }
 }
 
@@ -378,21 +431,8 @@ nav ul li.activo {
     padding: 20px;
 }
 
-.row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
 
-.col-10 {
-    width: 10%;
-    margin-top: 5px;
-}
 
-.col-75 {
-    width: 75%;
-    margin-top: 5px;
-}
 
 input[type=text], select, textarea {
     width: 100%;
@@ -466,6 +506,25 @@ input[type=submit] {
 /* END Página tiendas */
 
 /* Página pedidos */
+
+.book-attribute{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.book-attribute label{
+    width: 15%;
+}
+
+.book-attribute input{
+    width:75%;
+}
+
+
+
+
 
 /* END Página pedidos */
 
