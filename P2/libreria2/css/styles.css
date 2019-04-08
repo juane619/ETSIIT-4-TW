@@ -74,9 +74,21 @@ body {
     font-size: 2.2em;
 }
 
-#contenido main section{
+#contenido main section {
     margin-top: 15px;
-    padding:7px;
+    padding: 7px;
+}
+
+.my-button {
+    background-color: #417FD0;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
 }
 
 /* Iconos */
@@ -112,7 +124,7 @@ body {
 /* ROws and columns for forms */
 
 .row {
-    margin-top: 7px;
+    margin-top: 10px;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -258,7 +270,7 @@ footer #footer-middle ul {
         flex-wrap: wrap;
         align-content: flex-start;
     }
-    .book-attribute{
+    .book-attribute {
         width: 100%;
     }
 }
@@ -431,9 +443,6 @@ nav ul li.activo {
     padding: 20px;
 }
 
-
-
-
 input[type=text], select, textarea {
     width: 100%;
     padding: 5px;
@@ -457,7 +466,7 @@ input[type=text], select, textarea {
     display: inline-block;
 }
 
-label {
+#search-content label {
     padding: 12px 12px 12px 0;
     display: inline-block;
 }
@@ -507,24 +516,34 @@ input[type=submit] {
 
 /* Página pedidos */
 
-.book-attribute{
+#datos-libro h3 {
+    margin-top: 10px;
+}
+
+.book-attribute {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-left: 5px;
 }
 
-.book-attribute label{
+.book-attribute label {
     width: 15%;
 }
 
-.book-attribute input{
-    width:75%;
+.book-attribute input {
+    width: 75%;
 }
 
+#cvc-payment {
+    margin-left: 25px;
+}
 
-
-
+#procede-div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
 
 /* END Página pedidos */
 

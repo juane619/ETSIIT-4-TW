@@ -39,17 +39,17 @@
                 <div class="row">
                     <div class="book-attribute col-100">
                         <label for="titulo">Titulo</label>
-                        <input type="text" name="titulo" disabled>
+                        <input id="titulo" type="text" name="titulo" disabled>
                     </div>
                 </div>
                 <div class="row">
                     <div class="book-attribute col-50">
                         <label for="autor">Autor</label>
-                        <input type="text" name="autor" disabled>
+                        <input id="autor" type="text" name="autor" disabled>
                     </div>
                     <div class="book-attribute col-50">
                         <label for="editorial">Editorial</label>
-                        <input type="text" name="titulo" disabled>
+                        <input id="editorial" type="text" name="titulo" disabled>
                     </div>
 
                 </div>
@@ -57,39 +57,15 @@
                 <div class="row">
                     <div class="book-attribute col-50">
                         <label for="isbn">ISBN</label>
-                        <input type="text" name="isbn" disabled>
+                        <input id="isbn" type="text" name="isbn" disabled>
                     </div>
                     <div class="book-attribute col-50">
                         <label for="anio">Año</label>
-                        <input type="text" name="anio" disabled>
+                        <input id="anio" type="text" name="anio" disabled>
                     </div>
                 </div>
-                <h4>Sinopsis</h4>
-                <p>SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis
-                    SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis
-                    SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis
-                    SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis
-                    SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis
-                    SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis
-                    SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis.
-                </p>
-
-
-
-                <!-- <p><label>Titulo<input type="text" name="titulo" disabled></label></p>
-                <p><label>Autor<input type="text" name="autor" disabled></label></p>
-                <p><label>Editorial<input type="text" name="editorial" disabled></label></p>
-                <p><label>ISBN<input type="text" name="isbn" disabled></label></p>
-                <p><label>Año<input type="text" name="anio" disabled></label></p>
-                <h5>Sinopsis</h5>
-                <p>SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis
-                    SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis
-                    SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis
-                    SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis
-                    SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis
-                    SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis
-                    SinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsisSinopsis.
-                </p> -->
+                <h3>Sinopsis</h3>
+                <p>Sinopsis de prueba. </p>
             </section>
             <section id="datos-pedido">
                 <h2>Datos del pedido</h2>
@@ -112,7 +88,7 @@
                     </div>
                     <div class="row">
                         <div class="col-10">
-                            <label for="email">EMAIL</label>
+                            <label for="email">E-mail</label>
                         </div>
                         <div class="col-75">
                             <input type="text" id="email" name="email" placeholder="Email..">
@@ -131,13 +107,13 @@
                             <label for="caducity">Fecha de caducidad</label>
                         </div>
                         <div class="col-35">
-                            <input type="date" id="caducity" name="caducity" placeholder="Número de tarjeta..">
+                            <input type="date" id="caducity" name="caducity">
                         </div>
-                        <div class="col-10">
+                        <div id="cvc-payment" class="col-10">
                             <label for="cvc">CVC</label>
                         </div>
                         <div class="col-35">
-                            <input type="number" id="cvc" name="cvc" placeholder="Número de tarjeta..">
+                            <input type="number" id="cvc" name="cvc" placeholder="CVC..">
                         </div>
                     </div>
                     <div class="row">
@@ -145,7 +121,7 @@
                             <label>Marque si procede</label>
                         </div>
                         <div class="col-75">
-                            <div class="procede">
+                            <div id="procede-div">
                                 <label><input type="checkbox" name="leido" value="le">He leido y acepto las condiciones
                                     de compra</label>
                                 <label><input type="checkbox" name="recibir" value="re">Deseo recibir información sobre
@@ -155,9 +131,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <input type="submit" value="Hacer pedido">
-                    </div>
+                    <input class="my-button" type="submit" value="Hacer pedido">
                 </form>
             </section>
         </main>
@@ -218,10 +192,6 @@
                 <li><a href="index.html">La empresa</a></li>
                 <li><a href="index.html">Politica del sitio</a></li>
                 <li><a href="index.html">Preguntas frecuentes</a></li>
-                <li><a href="index.html">Mapa del sitio</a></li>
-                <li><a href="index.html">Mapa del sitio</a></li>
-                <li><a href="index.html">Mapa del sitio</a></li>
-                <li><a href="index.html">Mapa del sitio</a></li>
                 <li><a href="index.html">Mapa del sitio</a></li>
             </ul>
         </div>
