@@ -1,3 +1,7 @@
+<?php
+require_once 'authentication.php';
+?>
+
 <div id="head_izq">
     <img src="img/logo-libro.png" alt="El lector de libros" />
 </div>

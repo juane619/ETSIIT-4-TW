@@ -1,8 +1,10 @@
 <?php
+/**
+ * Template book management file
+ */
 
-require_once "config/global.php";
-require_once "views/common_functions.php";
-require_once "views/authentication.php";
+require_once ROOT_PATH."/views/common_functions.php";
+require_once ROOT_PATH."/views/manage_books/functions.php";
 
 if (!isset($_GET["p"])) {
     $_GET['p']=0;
@@ -33,7 +35,7 @@ head($_GET["p"]);
 
 <?php
 // Renderiza header
-require 'views/header.php';
+require_once ROOT_PATH.'/views/header.php';
 ?>
 
 </header>
@@ -53,23 +55,7 @@ HTMLnav($_GET["p"]);
     <main id="content-izq" class="general-padding">
 
 <?php
-switch ($_GET['p']) {
-case 0: 
-    include ROOT_PATH.'/views/main_content/templ_index.html'; 
-    break;
-case 1: 
-    include ROOT_PATH.'/views/main_content/templ_catalogo.html';
-    break;
-case 2: 
-    include ROOT_PATH.'/views/main_content/templ_busqueda.html'; 
-    break;
-case 3: 
-    include ROOT_PATH.'/views/main_content/templ_tiendas.html';
-    break;
-case 4: 
-    include ROOT_PATH.'/views/main_content/templ_pedidos.html';
-    break;
-}
+HTMLaddBook(); 
 ?>
 
     </main>
@@ -90,7 +76,7 @@ HTMLaside();
 
 <?php
 // Renderizamos el footer (por ahora comun)
-require "views/templ_footer.html"
+require ROOT_PATH."/views/footer.php"
 ?>
 
 </footer>

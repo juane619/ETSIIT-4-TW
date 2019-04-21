@@ -57,7 +57,6 @@ HTML;
  */
 function HTMLnav($activo) 
 {
-    echo "<nav>";
     echo "<ul>";
     $items = ["Inicio", "Catálogo", "Búsquedas", "Tiendas", "Pedidos"];
     foreach ($items as $k => $v) {
@@ -69,7 +68,7 @@ function HTMLnav($activo)
         <li class="dropdown">
             <a href="javascript:void(0)">Gestión de libros</a>
             <div class="dropdown-content">
-            <a href="#">Añadir libros</a>
+            <a href="/views/manage_books/addbook.php">Añadir libros</a>
             <a href="#">Eliminar libros</a>
             <a href="#">Editar libros</a>
             </div>
@@ -77,7 +76,33 @@ function HTMLnav($activo)
 HTML;
     }
     echo "</ul>";
-    echo "</nav>";
+}
+
+/**
+ * Aside section
+ *
+ * @return null
+ */
+function HTMLaside() 
+{
+    echo <<< HTML
+    <article>
+        <h3>Mas vendidos</h3>
+        <ul>
+            <li>El quijote</li>
+            <li>Ulises</li>
+            <li>Arguiñano cocina</li>
+        </ul>
+    </article>
+    <article>
+        <h3>Mas populares</h3>
+        <ul>
+            <li>Charles Dickens</li>
+            <li>Julio Verne</li>
+            <li>Edgar Allan Poe</li>
+        </ul>
+    </article>
+HTML;
 }
 
 
