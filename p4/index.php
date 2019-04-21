@@ -1,56 +1,70 @@
 <?php
 
-require "view/common_functions.php";
+require_once "views/common_functions.php";
+require_once "views/authentication.php";
 
 if (!isset($_GET["p"])) {
     $_GET['p']=0;
-} else if ($_GET["p"]<0 || $_GET["p"]>4) {
+} else if ($_GET["p"]<0 || $_GET["p"]>7) {
     $_GET['p']=0;
 }
 
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<?php
+
 // Segun la pagina requerida a renderizar, elegiremos los modulos a cargar
 
-// Elegimos modulo header a cargar
-switch ($_GET['p']) {
-case 0: 
-    echo expandir("view/templ_head.html", ['PAGE_TITLE' => 'Librería de JuanE']); 
-    break;
-case 1: 
-    echo expandir("view/templ_head.html", ['PAGE_TITLE' => 'Catálogo']);
-    break;
-case 2: 
-    echo expandir("view/templ_head.html", ['PAGE_TITLE' => 'Búsquedas']);
-    break;
-case 3: 
-    echo expandir("view/templ_head.html", ['PAGE_TITLE' => 'Librerías']);
-    break;
-case 4: 
-    echo expandir("view/templ_head.html", ['PAGE_TITLE' => 'Pedidos']);
-    break;
-}
-
-
-
-HTMLnav($_GET["p"]);
-
-switch ($_GET['p']) {
-case 0: 
-    include 'view/templ_index.html'; 
-    break;
-/* case 1: 
-    include 'view/templ_catalogo.html';
-    break;
-case 2: 
-    include 'view/templ_busqueda.html'; 
-    break;
-case 3: 
-    include 'view/templ_tiendas.html';
-    break;
-case 4: 
-    include 'view/templ_pedidos.html';
-    break; */
-}
-
-require "view/templ_footer.html"
+// Renderiza head ya procesado segun pagina
+head($_GET["p"]);
 
 ?>
+
+</head>
+<body>
+
+<header>
+<?php
+
+// Renderiza header
+require 'views/header.php';
+
+?>
+</header>
+
+<?php
+
+// Renderizamos el menu de navegacion procesado
+HTMLnav($_GET["p"]);
+
+// Renderizamos contenido principal segun pagina
+switch ($_GET['p']) {
+case 0: 
+    include 'views/templ_index.html'; 
+    break;
+case 1: 
+    include 'views/templ_catalogo.html';
+    break;
+case 2: 
+    include 'views/templ_busqueda.html'; 
+    break;
+case 3: 
+    include 'views/templ_tiendas.html';
+    break;
+case 4: 
+    include 'views/templ_pedidos.html';
+    break;
+}
+
+// Renderizamos el footer (por ahora comun)
+require "views/templ_footer.html"
+
+?>
+
+</body>
+
+</html>
