@@ -1,0 +1,764 @@
+/*
+  ESTILOS PRÁCTICA 2 TW - Juan Emilio García Martínez
+*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* END http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+/******* General rules *********/
+
+body {
+    background: #F9F9F7;
+    color: #417FD0;
+    width: 990px;
+    margin: 0 auto;
+    /* Centrar body */
+    font-size: 11px;
+    font-family: "trebuchet ms", helvetica, sans-serif;
+    line-height: 18px;
+}
+
+.general-padding {
+    padding: 7px;
+}
+
+.content-title {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 2.2em;
+    text-align: center;
+}
+
+#contenido main section {
+    margin-top: 15px;
+    padding: 7px;
+}
+
+.my-button {
+    background-color: #417FD0;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.form-invalid {
+    color: red;
+}
+
+.msg-error {
+    color: red;
+}
+
+.msg-info {
+    color: green;
+}
+
+/* Iconos */
+
+.fa-icon {
+    background-image: url(../img/facebook.png);
+    background-repeat: no-repeat;
+}
+
+.tw-icon {
+    background-image: url(../img/twitter.png);
+    background-repeat: no-repeat;
+}
+
+.pi-icon {
+    background-image: url(../img/pinterest.png);
+    background-repeat: no-repeat;
+}
+
+.rs-icon {
+    background-image: url(../img/rss.png);
+    background-repeat: no-repeat;
+}
+
+.footer-icon {
+    background-size: 35px 35px;
+    padding-left: 35px;
+    padding-bottom: 30px;
+}
+
+/* END Iconos */
+
+/* ROws and columns for forms */
+
+.row {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.col-10 {
+    width: 10%;
+    margin-top: 5px;
+}
+
+.col-25 {
+    width: 25%;
+    margin-top: 5px;
+}
+
+.col-50 {
+    width: 50%;
+    margin-top: 5px;
+}
+
+.col-75 {
+    width: 75%;
+    margin-top: 5px;
+}
+
+.col-100 {
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* END ROws and columns for forms */
+
+/******* END General rules *********/
+
+/* -------------- Estructura Flexbox */
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* Continuar en siguiente linea si ancho menor*/
+    justify-content: normal;
+    /* Eje principal */
+}
+
+#contenido {
+    display: flex;
+    /*justify-content: space-between;  */
+}
+
+#contenido main {
+    width: 70%;
+}
+
+#contenido aside {
+    width: 30%;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul {
+    display: flex;
+}
+
+footer #footer-middle ul {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* -------------- Diseño Adaptable */
+
+/* Tamaño inferior al ancho fijo inicial */
+
+@media (max-width: 696px) {
+    body {
+        width: 100%;
+    }
+    header #head_izq {
+        width: 100%;
+    }
+    header #head_der {
+        width: 100%;
+    }
+    nav {
+        box-sizing: border-box;
+        /* display: none; */
+    }
+    nav ul {
+        flex-wrap: wrap;
+        height: auto;
+    }
+    #contenido {
+        flex-direction: column;
+    }
+    #contenido main {
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+        box-sizing: border-box;
+    }
+    #contenido aside {
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+        box-sizing: border-box;
+    }
+}
+
+/* Si el tamaño es aún menor ... */
+
+@media (max-width: 510px) {
+    nav {
+        height: auto;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        height: auto;
+    }
+    nav ul li, nav ul li a {
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+    footer {
+        flex-direction: column;
+    }
+    footer #footer-middle ul {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 380px) {
+    .row {
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: flex-start;
+    }
+    .book-attribute {
+        width: 100%;
+    }
+}
+
+/* -------------- END Diseño Adaptable */
+
+/* -------------- HEADER  ------------------*/
+
+header {
+    padding-top: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+    align-items: center;
+}
+
+header img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Logo header */
+
+header #head_izq {
+    padding: 5px 20px;
+}
+
+/* Titulos header */
+
+header #head_der {
+    padding: 5px 20px;
+}
+
+header #head_login2 {
+    margin-left: auto;
+}
+
+/* Login */
+
+/* buttons of login*/
+
+#head_login2 button {
+    /*display:none;*/
+    background-color: #417FD0;
+    color: white;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-left: auto;
+}
+
+#head_login label {
+    font-size: 0.8rem;
+}
+
+/* Full-width input fields */
+
+#head_login input[type=text], #head_login input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#head_login2 button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+
+#head_login2 .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+
+/* END Login */
+
+/* -------------- END HEADER  ------------------*/
+
+/* -------------- NAVEGACIÓN ---------------*/
+
+nav {
+    /* margin: 10px 0 5px 0px; */
+    display: flex;
+    background: #EDEDED;
+    border-style: solid;
+    border-width: 1px;
+    /* height:30px; */
+}
+
+/* Lista del menú de navegación */
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    padding: 0;
+}
+
+/* Items de la lista del menú de navegación */
+
+nav ul li {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 0;
+}
+
+/* Enlaces del menú de navegación */
+
+nav ul li a {
+    margin: 0px;
+    text-decoration: none;
+    padding: 6px 15px;
+}
+
+/* Enlaces al pasar ratón por encima */
+
+nav ul li a:hover {
+    background: #fff;
+    color: #4A4A24;
+}
+
+/* Pestaña activa del menú */
+
+nav ul li.activo {
+    background-color: #BDBDA2;
+}
+
+/* Dropdown*/
+
+.dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* -------------- END NAVEGACIÓN ---------------*/
+
+/* -------------- CONTENEDOR PRINCIPAL DE CONTENIDO  --------------*/
+
+#contenido {
+    margin: 5px 0px 5px 0;
+}
+
+/* Zona izquierda: contenido principal (articulos) */
+
+#contenido main {
+    border-style: solid;
+    border-width: 1px;
+    background: #EDEDED;
+    margin-right: 5px;
+}
+
+#contenido main article {
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+/* Zona derecha: bloques informativos */
+
+#contenido aside {
+    border-style: solid;
+    border-width: 1px;
+    background: #EDEDED;
+}
+
+#contenido aside article {
+    margin-bottom: 15px;
+}
+
+/************* DISTINTAS PÁGINAS (POSIBLE DIVISION DE ARCHIVOS CSS) ***********/
+
+/* Eventos próximos */
+
+/* END Eventos próximos */
+
+/* LISTA DE INCIDENCIAS */
+
+.catalogo-incidencias {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+/* Incidencias entries*/
+
+.incidence-entry {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.book-entry img {
+    width: 100px;
+    height: 150px;
+}
+
+.botones-incidencia {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.aligner-item {
+    max-width: 50%;
+}
+
+.btn-incidences {
+    /*background-color: DodgerBlue;*/
+    border: none;
+    color: white;
+    /*padding: 12px 16px;*/
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.icon-like {
+    background: url(../img/icon-like.png) no-repeat;
+    float: left;
+    width: 50px;
+    height: 50px;
+}
+
+.icon-dislike {
+    background: url(../img/icon-dislike.png) no-repeat;
+    float: left;
+    width: 50px;
+    height: 50px;
+}
+
+.icon-comment {
+    background: url(../img/comment-icon.png) no-repeat;
+    float: left;
+    width: 50px;
+    height: 50px;
+}
+
+.icon-edit {
+    background: url(../img/edit-icon.png) no-repeat;
+    float: left;
+    width: 50px;
+    height: 50px;
+}
+
+.icon-remove {
+    background: url(../img/remove-icon.png) no-repeat;
+    float: left;
+    width: 50px;
+    height: 50px;
+}
+
+/* Incidencias */
+
+.insert-comment {
+    display: none;
+}
+
+/* END Incidencias */
+
+/* END ENTRADAS DE INCIDENCIAS */
+
+/* Formulario búsquedas */
+
+#search-content {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+input[type=text], select, textarea, input[type=number] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.price-range {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.price-range input {
+    margin: 0 5px;
+    width: 30%;
+}
+
+.encuads label {
+    display: inline-block;
+}
+
+#search-content label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color: #417FD0;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+/* END Formulario búsquedas */
+
+/* Página tiendas */
+
+#shop-content h3 {
+    margin-bottom: 10px;
+}
+
+#shop-content table {
+    text-align: center;
+    border: 1px solid;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#shop-content table thead th {
+    vertical-align: middle;
+    width: 10%;
+}
+
+#shop-content tr, #shop-content td, #shop-content tbody, #shop-content thead {
+    border: 1px solid;
+}
+
+#shop-content tr td:first-child {
+    vertical-align: middle;
+}
+
+#shop-content thead tr th:nth-child(2) {
+    width: 30%;
+}
+
+/* END Página tiendas */
+
+/* Página pedidos */
+
+#datos-libro h3 {
+    margin-top: 10px;
+}
+
+.book-attribute {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 5px;
+}
+
+.book-attribute label {
+    width: 15%;
+}
+
+.book-attribute input {
+    width: 75%;
+}
+
+#cvc-payment {
+    margin-left: 25px;
+}
+
+#procede-div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+/* END Página pedidos */
+
+/************* END DISTINTAS PÁGINAS (POSIBLE DIVISION DE ARCHIVOS CSS) ***********/
+
+/* -------------- END CONTENIDO ---------------*/
+
+/* -------------- PIE DE PÁGINA ----------*/
+
+footer {
+    background: #EDEDED;
+    margin: 0;
+    font-weight: bold;
+    box-sizing: border-box;
+    text-align: left;
+    border-style: solid;
+    border-width: 1px;
+}
+
+footer #footer-left {
+    width: 30%;
+}
+
+footer #footer-left ul {
+    margin-bottom: 10px;
+}
+
+footer #footer-middle {
+    width: 50%;
+    text-align: center;
+}
+
+footer #footer-middle ul li {
+    display: inline;
+}
+
+footer #footer-middle ul li a {}
+
+footer #footer-right {
+    width: 20%;
+    line-height: 1.5rem;
+}
+
+/* -------------- END PIE DE PÁGINA ----------*/
