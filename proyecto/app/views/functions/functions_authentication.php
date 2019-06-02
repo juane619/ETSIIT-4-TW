@@ -26,7 +26,7 @@ function htmlLogin($error)
             <div class="modal-content">
             <!-- Modal Header -->
                 <div class="modal-header">
-                    <button class="btn btn-default" type="button" class="close" 
+                    <button class="my-button" type="button" class="close" 
                     data-dismiss="modal">
                         <span aria-hidden="true">&times;</span>
                         <span class="sr-only">Close</span>
@@ -58,7 +58,7 @@ HTML;
                             <label for="passwd"><b>Contraseña</b></label>
                             <input type="password" placeholder="Contraseña" name="passwd" required>
                         </div>
-                        <button type="submit" class="btn btn-default">Login</button>
+                        <button type="submit" class="my-button">Login</button>
                         <label>
                             <input type="checkbox" checked="checked" name="remember"> Recordar
                         </label>
@@ -71,7 +71,7 @@ HTML;
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default"
+                    <button type="button" class="my-button"
                             data-dismiss="modal">
                                 Close
                     </button>
@@ -104,7 +104,7 @@ HTML;
     echo <<< HTML
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="my-button" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

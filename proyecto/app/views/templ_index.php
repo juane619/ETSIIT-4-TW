@@ -30,7 +30,7 @@ require VIEWS_PATH.'header.php';
 </header>
 
 <!--------- NAV SECTION !-->
-<nav>
+<nav class="">
 
 <?php
 // Renderizamos el menu de navegacion procesado

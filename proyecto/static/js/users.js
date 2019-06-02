@@ -12,6 +12,8 @@ function removeUser(id) {
             success: function (response) {
                 if (response != 'error') {
                     $("#user_" + id).empty();
+                    $("#user_" + id).remove();
+
                     alert('Usuario eliminado correctamente..');
                 }
             }

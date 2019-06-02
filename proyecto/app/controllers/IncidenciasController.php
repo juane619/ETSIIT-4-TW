@@ -8,7 +8,6 @@ class IncidenciasController extends Controller
 {
     public function makeValoration()
     {
-        // Debemos traernos los libros de BD y pasarlos a nuestra vista, esta se encarga de mostrarlos
         // connect to db
         // Database info
         $database_info = include ROOT_PATH.'/config/database.php';
@@ -142,7 +141,6 @@ class IncidenciasController extends Controller
 
     public function insertComment()
     {
-         // Debemos traernos los libros de BD y pasarlos a nuestra vista, esta se encarga de mostrarlos
         // connect to db
         // Database info
         $database_info = include ROOT_PATH.'/config/database.php';
@@ -313,7 +311,6 @@ class IncidenciasController extends Controller
         $view = View::make('myincidences', 'incidences');
         $view->with('namepage', 'myincidences');
 
-        // Debemos traernos los libros de BD y pasarlos a nuestra vista, esta se encarga de mostrarlos
         // connect to db
         // Database info
         $database_info = include ROOT_PATH.'/config/database.php';

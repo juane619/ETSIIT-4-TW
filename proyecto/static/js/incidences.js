@@ -27,6 +27,11 @@ function showCommentForm(id) {
     $("#insert-comment" + id).toggle(1000);
 }
 
+function showCommentSection(id) {
+    $("#incidence-comentarios" + id).toggle(1000);
+
+}
+
 function insertComment(id) {
     var parametros = {
         "id": id,
@@ -52,10 +57,18 @@ function insertComment(id) {
             else {
                 var comment = JSON.parse(response);
                 var $newComment = $('<div class="incidence-comentario" id="comment_' + comment['id'] + '">');
-                $newComment.append('<div class="incidence-comment-attribute">Usuario: <span>' + comment['usuario'] + '</span></div>');
-                $newComment.append('<div class="incidence-comment-attribute">Hora: <span>' + comment['hora'] + '</span></div>');
-                $newComment.append('<div class="incidence-comment-attribute">Comentario: <span>' + comment['comentario'] + '</span></div>');
                 $newComment.append('<a class="remove_button btn-incidences icon-remove" href="javascript:;" onclick="removeComment(' + comment['id'] + ');return false;"></a>');
+                var $content = $('<div class="content-comment">');
+                var $headComment = $('<div class="head-comment">');
+                $headComment.append('<div class="incidence-comment-attribute"><label>Usuario: </label><span>' + comment['usuario'] + '</span></div>');
+                $headComment.append('<div class="incidence-comment-attribute"><label>Hora: </label><span>' + comment['hora'] + '</span></div>');
+                $content.append($headComment);
+                var $bodyComment = $('<div class="body-comment">');
+                $bodyComment.append('<div class="incidence-comment-attribute"><p>' + comment['comentario'] + '</p></div>');
+
+                $content.append($bodyComment);
+                $newComment.append($content);
+
                 $("#incidence-comentarios" + comment['incidencia']).append($newComment);
                 alert('Comentario insertado correctamente..');
             }
@@ -100,7 +113,7 @@ function removeComment(id) {
 
             success: function (response) {
                 if (response != 'error') {
-                    $("#comment_" + id).empty();
+                    $("#comment_" + id).remove();
                     alert('Comentario eliminado correctamente..');
                 }
             }

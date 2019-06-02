@@ -1,13 +1,13 @@
 <div class="manage-section">
-    <h5>Acciones a realizar</h3>
-
-    <div class="management-actions">
+    
+    <section class="management-actions">
+        <h5>Acciones a realizar</h5>
         <ul>
             <li><a href="users/add">Añadir nuevo usuario</a></li>
         </ul>
-    </div>
-    <div class="catalogo-usuarios">
-    
+    </section>
+    <section class="catalogo-usuarios">
+        <h5>Listado de usuarios</h5>
     <?php
 
     if(!isset($users) || empty($users)) {
@@ -17,12 +17,14 @@
             if($user->getId() != 6 && $user->getId() != $_SESSION['user']->getId()) {
                 echo '<article class="user-entry" id="user_'.$user->getId().'">';
                 echo '<div id="user-foto">';        echo '</div>';
-                echo '<div class="user-atribute">Usuario: <span>'.$user->getUsername().'</span></div>';
-                echo '<div class="user-atribute">Email: <span>'.$user->getEmail().'</span></div>';
-                echo '<div class="user-atribute">Direccion: <span>'.$user->getDireccion().'</span></div>';
-                echo '<div class="user-atribute">Teléfono: <span>'.$user->getTelefono().'</span></div>';
-                echo '<div class="user-atribute">Estado: <span>'.$user->getEstado().'</span></div>';
-                echo '<div class="user-atribute">Rol: <spanp>'.$user->getTipoDescription().'</span></div>';
+                echo '<div class="attributes-user">';
+                    echo '<div class="user-atribute"><label>Usuario: </label><span> '.$user->getUsername().'</span></div>';
+                    echo '<div class="user-atribute"><label>Email: </label><span> '.$user->getEmail().'</span></div>';
+                    echo '<div class="user-atribute"><label>Direccion: </label><span> '.$user->getDireccion().'</span></div>';
+                    echo '<div class="user-atribute"><label>Teléfono: </label><span> '.$user->getTelefono().'</span></div>';
+                    echo '<div class="user-atribute"><label>Estado: </label><span> '.$user->getEstado().'</span></div>';
+                    echo '<div class="user-atribute"><label>Rol: </label><spanp> '.$user->getTipoDescription().'</span></div>';
+                echo '</div>';
 
                 echo '<div class="botones-users">'.PHP_EOL;
         
@@ -38,6 +40,6 @@
     }
 
     ?>
-</div>
+</section>
 </div>
     

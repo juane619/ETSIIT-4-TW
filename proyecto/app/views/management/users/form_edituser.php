@@ -3,7 +3,7 @@ if(!empty($user)) {
     echo  '<form action="'.$user->getId().'" method="post" onsubmit="return confirm(\'Esta seguro que quiere editar el usuario? Los cambios serán irreversibles.\');">';
         
         echo '<div class="row">';
-            echo '<div class="col-25">';
+            echo '<div class="col-10">';
                 echo '<label for="nombre">Nombre: </label>';
             echo '</div>';
             echo '<div class="col-75">';
@@ -12,7 +12,7 @@ if(!empty($user)) {
         echo '</div>';
         echo <<< HTML
         <div class="row">
-            <div class="col-25">
+            <div class="col-10">
                 <label for="apellidos">Apellidos: </label>
             </div>
             <div class="col-75">
@@ -22,17 +22,17 @@ HTML;
             </div>
         </div>
         <div class="row">
-            <div >
+            <div class="col-10">
                 <label for="email">Email: </label>
             </div>
-            <div>
+            <div class="col-75">
 HTML;
         echo '<input type="email" id="email" name="email" placeholder="Email.." value="'.$user->getEmail().'">';
         echo <<< HTML
             </div>
         </div>
         <div class="row">
-            <div class="col-25">
+            <div class="col-10">
                 <label for="password">New Password: </label>
             </div>
             <div class="col-75">
@@ -42,7 +42,7 @@ HTML;
             </div>
         </div>
         <div class="row">
-            <div class="col-25">
+            <div class="col-10">
                 <label for="direccion">Dirección: </label>
             </div>
             <div class="col-75">
@@ -52,7 +52,7 @@ HTML;
             </div>
         </div>
         <div class="row">
-            <div class="col-25">
+            <div class="col-10">
                 <label for="telefono">Teléfono: </label>
             </div>
             <div class="col-75">

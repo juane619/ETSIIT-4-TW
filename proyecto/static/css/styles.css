@@ -32,6 +32,10 @@ ol, ul {
     list-style: none;
 }
 
+a {
+    color: #d82228;
+}
+
 blockquote, q {
     quotes: none;
 }
@@ -54,8 +58,8 @@ table {
 /******* General rules *********/
 
 body {
-    background: #F9F9F7;
-    color: #417FD0;
+    background: #ffeced;
+    color: #000000;
     width: 990px;
     margin: 0 auto;
     /* Centrar body */
@@ -71,7 +75,7 @@ body {
 .content-title {
     margin-top: 5px;
     margin-bottom: 5px;
-    font-size: 2.2em;
+    font-size: 2.5em;
     text-align: center;
 }
 
@@ -81,7 +85,7 @@ body {
 }
 
 .my-button {
-    background-color: #417FD0;
+    background-color: #d82228;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -143,6 +147,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-left: 0;
 }
 
 .col-10 {
@@ -325,18 +330,6 @@ header #head_login2 {
 
 /* buttons of login*/
 
-#head_login2 button {
-    /*display:none;*/
-    background-color: #417FD0;
-    color: white;
-    padding: 10px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    margin-left: auto;
-}
-
 #head_login label {
     font-size: 0.8rem;
 }
@@ -501,8 +494,8 @@ li.dropdown {
 }
 
 #contenido main article {
-    padding: 5px;
     margin-bottom: 15px;
+    border-bottom: 1px solid;
 }
 
 /* Zona derecha: bloques informativos */
@@ -519,10 +512,6 @@ li.dropdown {
 
 /************* DISTINTAS PÁGINAS (POSIBLE DIVISION DE ARCHIVOS CSS) ***********/
 
-/* Eventos próximos */
-
-/* END Eventos próximos */
-
 /* LISTA DE INCIDENCIAS */
 
 .catalogo-incidencias {
@@ -537,6 +526,73 @@ li.dropdown {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 5px 0 0 5px;
+    border: 1px solid;
+}
+
+.incidence-title {
+    font-size: 1.25rem;
+}
+
+.incidence-atribute span {
+    color: #a52121;
+}
+
+.incidence-description {
+    font-size: 0.75rem;
+    margin: 15px 0;
+}
+
+.incidence-fotos {
+    margin: 10px 0;
+}
+
+.incidence-comentarios {
+    margin: 10px 0;
+}
+
+.incidence-comentarios a {
+    margin: 10px 0;
+}
+
+.incidence-comentario {
+    display: flex;
+    background-color: #ffdedf;
+    margin: 4px 0;
+    padding: 3px;
+    min-height: 52px;
+}
+
+.incidence-comentario a {
+    min-width: 50px;
+    min-height: 52px;
+}
+
+.incidence-comentario .content-comment {
+    display: flex;
+    flex-direction: column;
+}
+
+.incidence-comentario .head-comment {
+    display: flex;
+}
+
+.incidence-comentario .head-comment .incidence-comment-attribute {
+    margin-right: 10px;
+}
+
+.incidence-comentario .head-comment .incidence-comment-attribute label {
+    font-weight: bold;
+}
+
+.incidence-comentario .body-comment {
+    margin-top: 5px;
+}
+
+.insert-comment {
+    display: none;
+    margin: 5px 0;
+    padding: 5px 0;
 }
 
 .book-entry img {
@@ -599,15 +655,35 @@ li.dropdown {
     height: 50px;
 }
 
-/* Incidencias */
+/* END ENTRADAS DE INCIDENCIAS */
 
-.insert-comment {
-    display: none;
+/* LISTA DE USUARIOS */
+
+.management-actions {
+    margin-bottom: 15px;
 }
 
-/* END Incidencias */
+.user-entry {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+}
 
-/* END ENTRADAS DE INCIDENCIAS */
+.user-entry label {
+    font-weight: bold;
+}
+
+.botones-users {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.row label {
+    font-weight: bold;
+}
+
+/* END LISTA DE USUARIOS */
 
 /* Formulario búsquedas */
 
@@ -617,7 +693,7 @@ li.dropdown {
     padding: 20px;
 }
 
-input[type=text], select, textarea, input[type=number] {
+input[type=text], select, textarea, input[type=number], input[type=password], input[type=email] {
     width: 100%;
     padding: 5px;
     border: 1px solid #ccc;
@@ -643,15 +719,6 @@ input[type=text], select, textarea, input[type=number] {
 #search-content label {
     padding: 12px 12px 12px 0;
     display: inline-block;
-}
-
-input[type=submit] {
-    background-color: #417FD0;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    margin-top: 15px;
 }
 
 /* END Formulario búsquedas */

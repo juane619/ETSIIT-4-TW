@@ -52,7 +52,7 @@ function head($page)
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
 HTML;
-     echo '<link rel="stylesheet" title="adaptable" href="'.STATIC_PATH.'css/styles.css" />';
+    echo '<link rel="stylesheet" title="adaptable" href="'.STATIC_PATH.'css/styles.css" />';
     echo '<meta name="viewport" content="width=device-width"> <!-- Para diseño adaptable -->';
 }
 
@@ -166,7 +166,7 @@ function HTMLaside()
 {
     echo <<< HTML
     <article>
-        <h3>Autores con libros mas vendidos</h3>
+        <h3>Los que mas opinan</h3>
         <ul>
             <li>Charles Dickens</li>
             <li>Julio Verne</li>
