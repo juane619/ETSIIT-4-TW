@@ -79,7 +79,11 @@ class Model
         if (count($where) > 0) {
             $sql .= ' WHERE';
             foreach ($where as $key => $value) {
-                $sql .= sprintf(' %s = ? AND', $key);
+                if($key == 'password') {
+                    $sql .= sprintf(' %s = AES_ENCRYPT(?, "juane") AND', $key);
+                }else{
+                    $sql .= sprintf(' %s = ? AND', $key);
+                }
                 $attributes[] = $value;
             }
             $sql = substr($sql, 0, -4);
@@ -218,7 +222,12 @@ class Model
         if (count($data) > 0) {
             $sql .= ' SET';
             foreach ($data as $key => $value) {
-                $sql .= sprintf(' %s = ?,', $key);
+                if($key == 'password') {
+                    $sql .= sprintf(' %s = AES_ENCRYPT(?, "juane"),', $key);
+                }else{
+                    $sql .= sprintf(' %s = ?,', $key);
+                }
+
                 $parameters[] = $value;
             }
             $sql = substr($sql, 0, -1);

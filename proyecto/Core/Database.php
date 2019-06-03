@@ -21,7 +21,7 @@ class Database
                         'mysql:host='.$database_info['host'].';dbname='.$database_info['db'], $database_info['user'], $database_info['pass'],
                         array(PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC)
                     );
-                    self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    //self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 }
                 //logg('DB connected..'.rand());
             }catch (PDOException $e) {

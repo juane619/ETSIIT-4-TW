@@ -225,9 +225,150 @@ class IncidenciasController extends Controller
         $database_info = include ROOT_PATH.'/config/database.php';
         Database::init($database_info);
 
-        $incidencias = Incidencia::all();
+        if(isset($_REQUEST['submit'])) {
+            $data['sort'] = parseInput($_POST['ordenar']);
+            $data['contain_text'] =  parseInput($_POST['texto']);
+            $data['contain_lugar'] = parseInput($_POST['lugar']);
+            $data['state'] = $_POST['state'];
 
-        $view->with('incidencias', $incidencias);
+            $database_info = include ROOT_PATH.'/config/database.php';
+            Database::init($database_info);
+
+            //var_dump($data);
+
+            if(empty($data['contain_text']) && empty($data['contain_lugar']) && empty($data['state'])) {
+                if(empty($data['sort'])) {
+                    $incidencias = Incidencia::all();
+                } else{
+                    if($data['sort'] == "antiguedad") {
+                        $query = 'select * from ' . Incidencia::$table . ' ORDER BY fecha DESC ';
+                    }else if($data['sort'] == "positivos") {
+                        $query = 'select incidencias.*, sum(valoraciones.valoracion_pos) from incidencias left join valoraciones ON incidencias.id = valoraciones.incidencia group by incidencias.id order by sum(valoraciones.valoracion_pos) desc';
+                    }else if($data['sort'] == "negativos") {
+                        $query = 'select incidencias.*, sum(valoraciones.valoracion_neg) from incidencias left join valoraciones ON incidencias.id = valoraciones.incidencia group by incidencias.id order by sum(valoraciones.valoracion_neg) desc';
+                    }else if($data['sort'] == "positivosnetos") {
+                        $query = 'select incidencias.*, sum(valoraciones.valoracion_pos-valoraciones.valoracion_neg) from incidencias left join valoraciones ON incidencias.id = valoraciones.incidencia group by incidencias.id order by sum(valoraciones.valoracion_pos-valoraciones.valoracion_neg) desc';
+                    }
+                }
+            }else{
+                $filtrando = false;
+                if(!empty($data['sort']) && $data['sort'] != 'antiguedad') {
+                    if($data['sort'] == "positivos") {
+                        $query = 'select incidencias.*, sum(valoraciones.valoracion_pos) from incidencias left join valoraciones ON incidencias.id = valoraciones.incidencia group by incidencias.id order by sum(valoraciones.valoracion_pos) desc';
+                    }else if($data['sort'] == "negativos") {
+                        $query = 'select incidencias.*, sum(valoraciones.valoracion_neg) from incidencias left join valoraciones ON incidencias.id = valoraciones.incidencia group by incidencias.id order by sum(valoraciones.valoracion_neg) desc';
+                    }else if($data['sort'] == "positivosnetos") {
+                        $query = 'select incidencias.*, sum(valoraciones.valoracion_pos-valoraciones.valoracion_neg) from incidencias left join valoraciones ON incidencias.id = valoraciones.incidencia group by incidencias.id order by sum(valoraciones.valoracion_pos-valoraciones.valoracion_neg) desc';
+                    }
+                    $filtrando = true;
+                }else{
+                    $query = 'select * from ' . Incidencia::$table . ' where ';
+                }
+                
+                // hay que ir comprobando si filtrando o no
+                if($filtrando) {
+                    $pos_insert = stripos($query, 'group by');
+                    $query = substr_replace($query, ' where ', $pos_insert, 0);
+                    $pos_insert += 7;
+                }
+
+                if(!empty($data['contain_text'])) {
+                    $replacement= sprintf(' instr(%s, "%s") ', 'descripcion', $data['contain_text']);
+                    if(!$filtrando) {
+                        $query .= $replacement;
+                    }else{
+                        $query = substr_replace($query, $replacement, $pos_insert, 0);
+                        $pos_insert += strlen($replacement);
+                    }
+                }
+
+                if(!empty($data['contain_lugar'])) {
+                    if(empty($data['contain_text'])) {
+                        $replacement= sprintf(' instr(%s, "%s") ', 'lugar', $data['contain_lugar']);
+                        if(!$filtrando) {
+                            $query .= $replacement;
+                        }else{
+                            $query = substr_replace($query, $replacement, $pos_insert, 0);
+                            $pos_insert += strlen($replacement);
+                        }
+                    }else{
+                        $replacement=sprintf(' AND instr(%s, "%s") ', 'lugar', $data['contain_lugar']);
+                        if(!$filtrando) {
+                            $query .= $replacement;
+                        }else{
+                            $query = substr_replace($query, $replacement, $pos_insert, 0);
+                            $pos_insert += strlen($replacement);
+                        }
+                    }
+                }
+
+                if(!empty($data['state'])) {
+                    if(!empty($data['contain_text'] || !empty($data['contain_lugar']))) {
+                        $replacement= ' AND (';
+                        if(!$filtrando) {
+                            $query .= $replacement;
+                        }else{
+                            $query = substr_replace($query, $replacement, $pos_insert, 0);
+                            $pos_insert += strlen($replacement);
+                        }
+                    }
+
+                    $aux = "";
+                    foreach ($data['state'] as $state) {
+                        $replacement=sprintf(' %s = "%s" OR', 'estado', $state);
+                        
+                        $aux .= $replacement;
+                    } 
+                    $aux = substr($aux, 0, -3);
+
+                    if(!empty($data['contain_text'] || !empty($data['contain_lugar']))) {
+                        $replacement=') ';
+                        $aux .= $replacement;
+                    }
+
+                    if(!$filtrando) {
+                        $query .= $aux;
+                    }else{
+                        $query = substr_replace($query, $aux, $pos_insert, 0);
+                        $pos_insert += strlen($replacement);
+                    }
+                }
+                
+                if(!$filtrando) {
+                    if(!empty($data['sort'])) {
+                        if($data['sort'] == "antiguedad") {
+                            $query .= ' ORDER BY fecha DESC ';
+                        }
+                    }
+                }
+            }
+
+            if(isset($query)) {
+                $query .= ';';
+
+                //logg("QUERY SHOW: " . $query);
+
+                $response = Database::query($query);
+
+                if($response == false) {
+                    $incidencias= null;
+                }else{
+                    foreach ($response as $val) {
+                        $incidencias[] = new Incidencia($val);
+                    }
+
+                    //var_dump($incidencias);
+                }
+            }
+            
+            
+        }else{
+            $incidencias = Incidencia::all();
+        }
+
+        if(isset($incidencias)) {
+            $view->with('incidencias', $incidencias);
+        }
 
         if(isset($errors)) {
             $view->with('errors', $errors);

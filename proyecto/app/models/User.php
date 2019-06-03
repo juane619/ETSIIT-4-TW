@@ -100,7 +100,7 @@ class User extends Model
         }
   
         $query="INSERT INTO ".self::$table. " (username,password,nombre,apellidos,direccion,telefono,email,foto,tipo, estado)
-                VALUES (:username, :password, :nombre, :apellidos, :direccion, :telefono, :email, :foto, :tipo, :estado);";
+                VALUES (:username, AES_ENCRYPT(:password, 'juane'), :nombre, :apellidos, :direccion, :telefono, :email, :foto, :tipo, :estado);";
 
         $response = Database::query($query, $datos, false);
 

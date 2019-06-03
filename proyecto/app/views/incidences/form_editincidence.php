@@ -2,7 +2,7 @@
 if(!empty($incidence)) {
     echo  '<form action="'.$incidence->getId().'" method="post" onsubmit="return confirm(\'Sseguro de la edición de la incidencia?\');">';
         echo '<div class="row">';
-        echo '<div class="col-25">';
+        echo '<div class="col-15">';
             echo '<label for="titulo">Estado de la incidencia</label>';
         echo '</div>';
         echo '<div class="col-75">';
@@ -23,7 +23,7 @@ if(!empty($incidence)) {
         echo '</div>';
         echo '</div>';
         echo '<div class="row">';
-            echo '<div class="col-25">';
+            echo '<div class="col-15">';
                 echo '<label for="titulo">Titulo de la incidencia</label>';
             echo '</div>';
             echo '<div class="col-75">';
@@ -32,7 +32,7 @@ if(!empty($incidence)) {
         echo '</div>';
         echo <<< HTML
         <div class="row">
-            <div class="col-25">
+            <div class="col-15">
                 <label for="descripcion">Descripción de la incidencia</label>
             </div>
             <div class="col-75">
@@ -42,17 +42,17 @@ HTML;
             </div>
         </div>
         <div class="row">
-            <div >
+            <div class="col-15">
                 <label for="lugar">Lugar</label>
             </div>
-            <div>
+            <div class="col-75">
 HTML;
         echo '<input type="text" id="lugar" name="lugar" placeholder="Lugar.." value="'.$incidence->getLugar().'">';
         echo <<< HTML
             </div>
         </div>
         <div class="row">
-            <div class="col-25">
+            <div class="col-15">
                 <label for="tags">Tags</label>
             </div>
             <div class="col-75">

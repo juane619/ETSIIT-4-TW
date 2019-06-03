@@ -4,7 +4,7 @@
     echo <<< HTML
     <form action="" method="post" id="adduser-form">
         <div class="row">
-            <div class="col-10">
+            <div class="col-15">
                 <label for="username">Username: (*)</label>
             </div>
             <div class="col-75">
@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-10">
+            <div class="col-15">
                 <label for="password">Contraseña: (*)</label>
             </div>
             <div class="col-75">
@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-10">
+            <div class="col-15">
                 <label for="password_confirm">Repita su contraseña: (*)</label>
             </div>
             <div class="col-75">
@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-10">
+            <div class="col-15">
                 <label for="email">Email: (*)</label>
             </div>
             <div class="col-75">
@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-10">
+            <div class="col-15">
                 <label for="nombre">Nombre: </label>
             </div>
             <div class="col-75">
@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-10">
+            <div class="col-15">
                 <label for="apellidos">Apellidos: </label>
             </div>
             <div class="col-75">
@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-10">
+            <div class="col-15">
                 <label for="email">Direccion:</label>
             </div>
             <div class="col-75">
@@ -60,7 +60,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-10">
+            <div class="col-15">
                 <label for="telefono">Telefono: </label>
             </div>
             <div class="col-75">
@@ -69,7 +69,7 @@
         </div>
         <!--Foto -->
         <div class="row">
-            <div class="col-10">
+            <div class="col-15">
                 <label>Foto</label>
             </div>
             <div class="col-75">
@@ -81,7 +81,7 @@ HTML;
 if($_SESSION['user_type'] == 0) {
     echo <<< HTML
             <div class="row">
-            <div class="col-10">
+            <div class="col-15">
                 <label for="tipo">Tipo: </label>
             </div>
             <div class="col-75">
@@ -92,7 +92,7 @@ if($_SESSION['user_type'] == 0) {
             </div>
         </div>
         <div class="row">
-            <div class="col-10">
+            <div class="col-15">
                 <label for="estado">Estado: </label>
             </div>
             <div class="col-75">

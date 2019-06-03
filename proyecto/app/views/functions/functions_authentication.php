@@ -63,18 +63,12 @@ HTML;
                             <input type="checkbox" checked="checked" name="remember"> Recordar
                         </label>
 
-                        <div class="container" style="background-color:#f1f1f1">
+                        <div class="container">
 HTML;
                             echo '<span class="psw"><a href="'.ROOT_ROUTE.'management/users/add">No tienes cuenta?</a></span>';
                             echo <<< HTML
                         </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="my-button"
-                            data-dismiss="modal">
-                                Close
-                    </button>
                 </div>
             </div>
         </div>

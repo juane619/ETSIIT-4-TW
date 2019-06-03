@@ -28,7 +28,7 @@ HTML;
                 
             </div>
 
-            <div class="container" style="background-color:#f1f1f1">
+            <div class="container">
                 <button type="button" onclick="document.getElementById('head_login').style.display='none'"
                     class="cancelbtn">Aceptar</button>
                 <!-- <span class="psw"><a href="#">Olvidaste la contraseña?</a></span> -->
@@ -47,7 +47,7 @@ function HTMLaddIncidencia()
     echo <<< HTML
     <form action="" method="post" id="incidence-form">
         <div class="row">
-            <div class="col-10">
+            <div class="col-15">
                 <label for="titulo">Titulo de la incidencia</label>
             </div>
             <div class="col-75">
@@ -55,7 +55,7 @@ function HTMLaddIncidencia()
             </div>
         </div>
         <div class="row">
-            <div class="col-10">
+            <div class="col-15">
                 <label for="descripcion">Descripción de la incidencia</label>
             </div>
             <div class="col-75">
@@ -63,7 +63,7 @@ function HTMLaddIncidencia()
             </div>
         </div>
         <div class="row">
-            <div class="col-10">
+            <div class="col-15">
                 <label for="lugar">Lugar</label>
             </div>
             <div class="col-75">
@@ -71,7 +71,7 @@ function HTMLaddIncidencia()
             </div>
         </div>
         <div class="row">
-            <div class="col-10">
+            <div class="col-15">
                 <label for="tags">Tags</label>
             </div>
             <div class="col-75">
@@ -80,7 +80,7 @@ function HTMLaddIncidencia()
         </div>
         <!--Foto -->
         <div class="row">
-            <div class="col-10">
+            <div class="col-15">
                 <label>Fotos</label>
             </div>
             <div class="col-75">
@@ -103,7 +103,7 @@ function HTMLeditIncidence($incidence)
     echo <<< HTML
     <form action="" method="post" id="incidence-form">
         <div class="row">
-            <div class="col-10">
+            <div class="col-15">
                 <label for="titulo">Titulo de la incidencia</label>
             </div>
             <div class="col-75">
@@ -111,7 +111,7 @@ function HTMLeditIncidence($incidence)
             </div>
         </div>
         <div class="row">
-            <div class="col-10">
+            <div class="col-15">
                 <label for="descripcion">Descripción de la incidencia</label>
             </div>
             <div class="col-75">
@@ -119,7 +119,7 @@ function HTMLeditIncidence($incidence)
             </div>
         </div>
         <div class="row">
-            <div class="col-10">
+            <div class="col-15">
                 <label for="lugar">Lugar</label>
             </div>
             <div class="col-75">
@@ -127,7 +127,7 @@ function HTMLeditIncidence($incidence)
             </div>
         </div>
         <div class="row">
-            <div class="col-10">
+            <div class="col-15">
                 <label for="tags">Tags</label>
             </div>
             <div class="col-75">
@@ -136,7 +136,7 @@ function HTMLeditIncidence($incidence)
         </div>
         <!--Foto -->
         <div class="row">
-            <div class="col-10">
+            <div class="col-15">
                 <label>Fotos</label>
             </div>
             <div class="col-75">

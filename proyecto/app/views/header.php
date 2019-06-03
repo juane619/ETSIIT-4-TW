@@ -38,8 +38,8 @@ $database_info = include_once ROOT_PATH.'/config/database.php';
         $accion = "yaidentificado";
     }else if (isset($_POST['username']) && isset($_POST['passwd']) ) {
         // Se han recibido datos del formulario de login: validar login
-        $username = $_POST['username'];
-        $password = $_POST['passwd'];
+        $username = parseInput($_POST['username']);
+        $password = parseInput($_POST['passwd']);
 
         // connect to db
         Database::init($database_info);
