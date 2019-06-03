@@ -7,7 +7,8 @@ function makeValoration(id, type) {
     };
     $.ajax({
         data: parametros,
-        url: 'http://172.19.0.1/proyecto/incidences/make-val',
+        url: rootRoute + "incidences/make-val",
+        //url: 'http://172.19.0.1/proyecto/incidences/make-val',
         type: 'get',
 
         success: function (response) {
@@ -40,7 +41,7 @@ function insertComment(id) {
 
     $.ajax({
         data: parametros,
-        url: 'http://172.19.0.1/proyecto/incidences/insert-comment',
+        url: rootRoute + "incidences/insert-comment",
         type: 'post',
 
         success: function (response) {
@@ -86,14 +87,15 @@ function removeIncidence(id) {
     if (confirm('Desea eliminar la incidencia?')) {
         $.ajax({
             data: parametros,
-            url: 'http://172.19.0.1/proyecto/incidences/remove-incidence',
+            url: rootRoute + 'incidences/remove-incidence',
             type: 'post',
 
             success: function (response) {
-                if (response != 'error') {
-
+                if (!response.includes('error')) {
                     $("#incidence_" + id).empty();
                     alert('Incidencia eliminada correctamente..');
+                } else {
+                    alert('ERror al eliminar la incidencia..');
                 }
             }
         });
@@ -108,11 +110,11 @@ function removeComment(id) {
     if (confirm('Desea eliminar el comentario?')) {
         $.ajax({
             data: parametros,
-            url: 'http://172.19.0.1/proyecto/incidences/remove-comment',
+            url: rootRoute + 'incidences/remove-comment',
             type: 'post',
 
             success: function (response) {
-                if (response != 'error') {
+                if (!response.includes('error')) {
                     $("#comment_" + id).remove();
                     alert('Comentario eliminado correctamente..');
                 }

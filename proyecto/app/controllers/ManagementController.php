@@ -216,7 +216,7 @@ class ManagementController extends Controller
 
         $response = User::delete($idUser);
 
-        //logg($response);
+        logg('ERROOOOR: '.$response);
 
         if($response === false) {
             return 'error';

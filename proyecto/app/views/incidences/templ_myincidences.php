@@ -16,6 +16,10 @@ require VIEWS_PATH.'functions/'.'functions_common.php';
 head("namepage");
 ?>
 
+<script>
+    var rootRoute = <?php echo ROOT_ROUTE; ?>;
+</script>
+
 <?php
 // Load JS Files
 echo '<script src="'.STATIC_PATH.'js/incidences.js"> </script>';
