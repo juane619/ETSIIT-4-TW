@@ -2,7 +2,7 @@
 /**
  * Global constraints file
  */
-define('ENVIRONMENT', 'DEVELOPMENT'); // CAN BE 'DEVELOPMENT' OR 'PRODUCTION'
+define('ENVIRONMENT', 'PRODUCTION'); // CAN BE 'DEVELOPMENT' OR 'PRODUCTION'
 
 if(ENVIRONMENT === 'DEVELOPMENT') {
     define('ROOT_ROUTE', '/proyecto/');

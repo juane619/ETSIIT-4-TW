@@ -150,41 +150,45 @@ class IncidenciasController extends Controller
             $idIncidence = $_POST['id'];
         }
         if(isset($_POST['comment'])) {
-            $commentIncidence = $_POST['comment'];
+            $commentIncidence = parseInput($_POST['comment']);
         }
 
-        if(strlen(trim($commentIncidence)) == 0) {
-            //logg('Comentario vacio..');
-            return json_encode("vacio");
-        }else if(strlen(trim($commentIncidence)) > 299) {
-            //logg('Comentario vacio..');
-            return json_encode("largo");
+        if(isset($idIncidence) && isset($idIncidence)){
+            if(strlen($commentIncidence) == 0) {
+                //logg('Comentario vacio..');
+                return json_encode("vacio");
+            }else if(strlen($commentIncidence) > 299) {
+                //logg('Comentario vacio..');
+                return json_encode("largo");
+            }
+
+            $idUser = 6;
+            if($_SESSION['user_type'] != 2) {
+                $idUser = $_SESSION['user']->getId();
+            }
+
+            $data = [
+                'incidencia' => $idIncidence,
+                'usuario' => $idUser,
+                'comentario' => $commentIncidence
+            ];
+
+            $comment = new Comentario($data);
+            $response = $comment->save();
+
+            if($response === false) {
+                return false;
+            }
+
+            //var_dump($response);
+            $data['id'] = $response->getId();
+            $data['hora'] = $response->getHora();
+            $data['usuario'] = (string) $data['usuario'];
+
+            return json_encode($data);
+        }else{
+            return error_404();
         }
-
-        $idUser = 6;
-        if($_SESSION['user_type'] != 2) {
-            $idUser = $_SESSION['user']->getId();
-        }
-
-        $data = [
-            'incidencia' => $idIncidence,
-            'usuario' => $idUser,
-            'comentario' => $commentIncidence
-        ];
-
-        $comment = new Comentario($data);
-        $response = $comment->save();
-
-        if($response === false) {
-            return false;
-        }
-
-        //var_dump($response);
-        $data['id'] = $response->getId();
-        $data['hora'] = $response->getHora();
-        $data['usuario'] = (string) $data['usuario'];
-
-        return json_encode($data);
     }
 
     public function removeComment()
@@ -195,6 +199,8 @@ class IncidenciasController extends Controller
             $view->with('needauth', true);
             return $view;
         }
+
+
         // connect to db
         // Database info
         $database_info = include ROOT_PATH.'/config/database.php';
@@ -226,10 +232,14 @@ class IncidenciasController extends Controller
         Database::init($database_info);
 
         if(isset($_REQUEST['submit'])) {
-            $data['sort'] = parseInput($_POST['ordenar']);
-            $data['contain_text'] =  parseInput($_POST['texto']);
-            $data['contain_lugar'] = parseInput($_POST['lugar']);
-            $data['state'] = $_POST['state'];
+            if(isset($_POST['ordenar']))
+                $data['sort'] = parseInput($_POST['ordenar']);
+            if(isset($_POST['texto']))
+                $data['contain_text'] =  parseInput($_POST['texto']);
+            if(isset($_POST['lugar']))
+                $data['contain_lugar'] = parseInput($_POST['lugar']);
+            if(isset($_POST['state']))
+                $data['state'] = $_POST['state'];
 
             $database_info = include ROOT_PATH.'/config/database.php';
             Database::init($database_info);
@@ -471,6 +481,7 @@ class IncidenciasController extends Controller
             $view->with('needauth', true);
             return $view;
         }
+
         // connect to db
         // Database info
         $database_info = include ROOT_PATH.'/config/database.php';
@@ -491,20 +502,39 @@ class IncidenciasController extends Controller
 
     public function editIncidence($id=null)
     {
-        if (Auth::user_type() == 2) {
+        $database_info = include ROOT_PATH.'/config/database.php';
+        Database::init($database_info);
+
+        $incidence = Incidencia::findById($id);
+
+        if($incidence == false){
+            return error_404();
+        }
+
+        if (!Auth::check()) {
             $view = View::make('index');
             $view->with('namepage', 'index');
             $view->with('needauth', true);
             return $view;
+        }else if(Auth::user_type() == 1) {
+            if($incidence->getUsuario()->getId() != $_SESSION['user']->getId()) {
+                $view = View::make('index');
+                $view->with('namepage', 'index');
+            
+                $view->with('needPrivileges', true);
+
+                return $view;
+            }
         }
+
 
         $info = [];
         $errors = [];
 
         $view = View::make('editincidence', 'incidences');
+        $view->with('namepage', 'index');
 
-        $database_info = include ROOT_PATH.'/config/database.php';
-        Database::init($database_info);
+        
 
         
         //logg('Editing.. '.$id);

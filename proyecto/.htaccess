@@ -1,6 +1,6 @@
 Options +FollowSymLinks
 RewriteEngine On
-RewriteBase /proyecto/
+RewriteBase /~juane6191819/proyecto
 
 # Redirect Trailing Slashes...
 RewriteRule ^(.*)/$ /$1 [L,R=301]

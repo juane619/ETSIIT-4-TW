@@ -118,7 +118,7 @@ HTML;
 function htmlWelcome()
 {
     echo '<div id="welcome" class="container">';
-    echo '<p>Bienvenido '.$_SESSION['user']->getNombre().' (<a href="'.ROOT_ROUTE.'management/users/edit/'.$_SESSION['user']->getId().'">'.$_SESSION['user']->getUsername().')</a></p>';
+    echo '<p>Bienvenido '.$_SESSION['user']->getNombre().' (<a href="'.ROOT_ROUTE.'management/users/edit/'.$_SESSION['user']->getId().'">'.$_SESSION['user']->getUsername().'</a>)</p>';
     echo '<form action="'.ROOT_ROUTE.'" method="POST">';
         echo '<input class="my-button" type="submit" name="logout" value="Logout">';
     echo '</form>';

@@ -116,7 +116,9 @@ HTML;
 
 function parseInput($input)
 {
-    return trim(strip_tags($input));
+    if(isset($input)){
+        return trim(strip_tags($input));
+    }
 }
 
 ?>

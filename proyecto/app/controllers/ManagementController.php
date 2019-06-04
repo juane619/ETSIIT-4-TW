@@ -44,6 +44,7 @@ class ManagementController extends Controller
 
     public function addUser()
     {
+        
         $view = View::make('adduser', 'management/users');
         $view->with('namepage', 'users');
 
@@ -135,6 +136,7 @@ class ManagementController extends Controller
         $errors = [];
 
         $view = View::make('edituser', 'management/users');
+        $view->with('namepage', 'users');
 
         $database_info = include ROOT_PATH.'/config/database.php';
         Database::init($database_info);
@@ -199,7 +201,7 @@ class ManagementController extends Controller
 
     public function removeUser()
     {
-        if (Auth::user_type() == 2) {
+        if (Auth::user_type() != 0) {
             $view = View::make('index');
             $view->with('namepage', 'index');
             $view->with('needauth', true);

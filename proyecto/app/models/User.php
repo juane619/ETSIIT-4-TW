@@ -119,7 +119,7 @@ class User extends Model
         $query="select valoracion_pos from valoraciones where incidencia=".$idIncidence." and usuario=".$this->id." LIMIT 1;";
 
         $response = Database::query($query);
-        if($response[0] == null) {
+        if($response == NULL || $response == false) {
             return -1;
         }
         return array_values($response[0])[0];
@@ -133,7 +133,7 @@ class User extends Model
         $query="select valoracion_neg from valoraciones where incidencia=".$idIncidence." and usuario=".$this->id." LIMIT 1;";
 
         $response = Database::query($query);
-        if($response[0] == null) {
+        if($response == NULL || $response == false) {
             return -1;
         }
         return array_values($response[0])[0];

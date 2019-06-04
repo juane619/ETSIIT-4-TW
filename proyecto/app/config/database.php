@@ -5,7 +5,7 @@
 
 return array(
     "driver"    =>"mysql",
-    "host"      =>"db",
+    "host"      =>"localhost",
     "port"      =>"3306",
     "user"      =>"juane6191819",
     "pass"      =>"61la8Zhz",

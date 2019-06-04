@@ -67,7 +67,10 @@ HTML;
  */
 function HTMLnav($namepage) 
 {
-    $currentLink = getActiveLink($namepage);
+    if(isset($namepage))
+        $currentLink = getActiveLink($namepage);
+    else
+        $currentLink = 0;
 
     echo "<ul>";
 
@@ -103,7 +106,7 @@ function getActiveLink($namepage)
             break;
     case 'index': 
         return 0;
-                break;
+            break;
     case 'show': 
         return 1;
             break;

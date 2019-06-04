@@ -18,7 +18,7 @@ head("namepage");
 
 
 <script>
-    var rootRoute = <?php echo ROOT_ROUTE; ?>;
+    var rootRoute = '<?php echo ROOT_ROUTE; ?>';
 </script>
 
 <?php
