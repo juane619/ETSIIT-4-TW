@@ -19,7 +19,7 @@ $database_info = include_once ROOT_PATH.'/config/database.php';
 <div id="head_login2">
 
     <?php
-    echo 'USUARIO ADMINISTRADOR-> user: "juane" --- pass: "prueba"   ';
+    //echo 'USUARIO ADMINISTRADOR-> user: "admin" --- pass: "prueba"   ';
     $error = "";
 
     /**

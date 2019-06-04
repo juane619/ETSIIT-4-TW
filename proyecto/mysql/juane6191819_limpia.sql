@@ -64,8 +64,9 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 /* data for Table users */
-INSERT INTO `users` VALUES (NULL,"juane","¸&‰FDg‰;Kô:÷»ç’ê","juan emilio","garcia martinez","c santa clara","958669490","juane619@hotmail.com",NULL,0,"activo");
-INSERT INTO `users` VALUES (NULL,"anonimous","","anonimous","anonimous","anonimous","","",NULL,1,"activo");
+INSERT INTO `users` VALUES (NULL,"admin","¸&‰FDg‰;Kô:÷»ç’ê","juan emilio","garcia martinez","c santa clara","958669490","admin@hotmail.com",NULL,0,"activo");
+INSERT INTO `users` VALUES (NULL,"anonimous","","anonimous","anonimous","anonimous","","",NULL,2,"activo");
+INSERT INTO `users` VALUES (NULL,"juane","¸&‰FDg‰;Kô:÷»ç’ê",NULL,NULL,NULL,NULL,"juane@hotmail.com",NULL,1,"acrivo");
 
 drop table if exists `valoraciones`;
 
